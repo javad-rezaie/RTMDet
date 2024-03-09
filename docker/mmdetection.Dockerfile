@@ -22,5 +22,6 @@ RUN apt-get update \
 RUN pip install openmim && \
     mim install mmengine mmcv mmdet
 RUN mim install mmcv mmdet 
-# Install JupyterLab if you are interested to run experiments on the docker
-RUN mim install jupyterlab ipykernel 
+# Install JupyterLab if you are interested to run experiments on the docker and seaborn to plot logs
+RUN mim install jupyterlab ipykernel seaborn
+RUN git clone https://github.com/open-mmlab/mmdetection.git
