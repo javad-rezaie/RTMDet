@@ -5,20 +5,22 @@ _base_ = [
 # dataset settings
 dataset_type = 'CocoDataset'
 data_root = "/data/" 
-train_annot = "{{$TRAIN_ANNOT:}}"
-val_annot = "{{$VAL_ANNOT:}}" 
-test_annot = "{{$TEST_ANNOT:}}" 
-train_image_folder = "{{$TRAIN_IMG_FOLDER:}}"
-val_image_folder = "{{$VAL_IMG_FOLDER:}}" 
-test_image_folder = "{{$TEST_IMG_FOLDER:}}" 
-# Remember, enviroment variables are read as string, so convert them to appropriate types i.e int, float 
-base_lr = float("{{$BASE_LR:}}")
-max_epochs = int("{{$MAX_EPOCHS:}}" )
-warmup_iters = int("{{$WARMUP_ITERS:}}")
-interval = int("{{$INTERVAL:}}")
-stage2_num_epochs = int("{{$STAGE2_NUM_EPOCHS:}}")
+train_annot = "train_coco.json"
+val_annot = "test_coco.json"
+test_annot = "test_coco.json"
+train_image_folder = "images/"
+val_image_folder = "images/"
+test_image_folder = "images/"
 
-work_dir = "{{$WORK_DIR:}}"
+# Training Parameter Settings
+base_lr = 0.004
+max_epochs = 100
+warmup_iters = 200
+check_point_interval = 10
+val_interval =  1
+stage2_num_epochs = 40
+
+work_dir = "/out"
 
 train_data_annot_path = data_root + train_annot
 
@@ -47,7 +49,7 @@ model = dict(
 
 train_dataloader = dict(
     batch_size=8,
-    num_workers=10,
+    num_workers=3,
     dataset=dict(
         type=dataset_type,
         metainfo=metainfo,
@@ -59,7 +61,7 @@ train_dataloader = dict(
 
 val_dataloader = dict(
     batch_size=8,
-    num_workers=10,
+    num_workers=3,
     dataset=dict(
         type=dataset_type,
         metainfo=metainfo,
@@ -71,7 +73,7 @@ val_dataloader = dict(
 
 test_dataloader = dict(
     batch_size=8,
-    num_workers=10,
+    num_workers=3,
     dataset=dict(
         type=dataset_type,
         metainfo=metainfo,
@@ -80,6 +82,10 @@ test_dataloader = dict(
         data_prefix=dict(img=test_image_folder),
         test_mode=True
         )
+    )
+
+train_cfg = dict(
+    val_interval=val_interval
     )
 
 
@@ -123,7 +129,7 @@ param_scheduler = [
 # hooks
 default_hooks = dict(
     checkpoint=dict(
-        interval=interval, # Save checkpoint on "interval" epochs
+        interval=check_point_interval, # Save checkpoint on "interval" epochs
         max_keep_ckpts=1  # only keep latest 1 checkpoints
     ))
 custom_hooks = [
