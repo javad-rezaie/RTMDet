@@ -1,3 +1,11 @@
+#
+# Created on Sun Mar 10 2024
+#
+# Copyright (c) 2024 The Home Made AI (HOMAI)
+# Author: Javad Rezaie
+# License: Apache License 2.0
+#
+
 _base_ = [
     'mmdet::rtmdet/rtmdet_s_8xb32-300e_coco.py'
 ]

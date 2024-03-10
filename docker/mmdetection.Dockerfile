@@ -1,5 +1,14 @@
 # syntax=docker/dockerfile:1
 
+#---------------------HOMAI------------------------#
+# Created on Sun Mar 10 2024
+#
+# Copyright (c) 2024 The Home Made AI (HOMAI)
+# Author: Javad Rezaie
+# License: Apache License 2.0
+#---------------------HOMAI------------------------#
+
+
 ARG PYTORCH="2.1.1"
 ARG CUDA="12.1"
 ARG CUDNN="8"

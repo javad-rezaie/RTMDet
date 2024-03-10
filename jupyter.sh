@@ -1,3 +1,11 @@
+#
+# Created on Sun Mar 10 2024
+#
+# Copyright (c) 2024 The Home Made AI (HOMAI)
+# Author: Javad Rezaie
+# License: Apache License 2.0
+#
+
 DATA_DIR="/mnt/SSD2/kvasir-instrument/"
 OUT_DIR="$PWD/out"
 CONFIG_DIR=$PWD/codes/
