@@ -159,4 +159,10 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-*out/
+.gitignore
+out/epoch_300.pth
+out/last_checkpoint
+out/rtmdet_s_8xb32-300e_coco.py
+out/20240309_054830/vis_data/20240309_054830.json
+out/20240309_054830/vis_data/config.py
+out/20240309_054830/vis_data/scalars.json
