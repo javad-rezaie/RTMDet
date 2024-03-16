@@ -10,8 +10,8 @@ DATA_DIR="/mnt/SSD2/kvasir-instrument/"
 OUT_DIR="$PWD/out"
 CONFIG_DIR=$PWD/codes/
 
-
 GPUS=3
+# You can use the variables DATA_DIR, OUT_DIR, CONFIG_DIR, GPUS in your script from this point onward.
 
 docker run -it --rm \
     --gpus all \

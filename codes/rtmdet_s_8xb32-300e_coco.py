@@ -6,11 +6,17 @@
 # License: Apache License 2.0
 #
 
+# Import a base configuration file that serves as the foundation for your training setup. 
+# This base configuration typically includes default settings for model architecture, optimizer, and other parameters.
+
 _base_ = [
     'mmdet::rtmdet/rtmdet_s_8xb32-300e_coco.py'
 ]
 
 # dataset settings
+# Adjust the paths within the configuration to point to your dataset directory. 
+# This ensures that the training pipeline accesses the correct data during the training process.
+
 dataset_type = 'CocoDataset'
 data_root = "/data/" 
 train_annot = "train_coco.json"
@@ -21,6 +27,9 @@ val_image_folder = "images/"
 test_image_folder = "images/"
 
 # Training Parameter Settings
+# Specify the hyperparameters for training, such as batch size, number of epochs, learning rate, weight decay, etc. 
+# These parameters significantly impact the training process and model performance.
+
 base_lr = 0.004
 max_epochs = 100
 warmup_iters = 200
@@ -29,6 +38,9 @@ val_interval =  1
 stage2_num_epochs = 40
 
 work_dir = "/out"
+
+# Modify the model configuration to accommodate the specific requirements of your dataset. 
+# This might involve adjusting the input/output dimensions, changing the number of output classes, or fine-tuning certain layers to better suit your data (here we only need to update the number of objects).
 
 train_data_annot_path = data_root + train_annot
 
@@ -54,6 +66,8 @@ model = dict(
     )
 )
 
+# Customize the data loaders to preprocess and load your dataset efficiently. 
+# This step involves setting up data augmentation techniques, data normalization, and any other preprocessing steps necessary for training.
 
 train_dataloader = dict(
     batch_size=8,
@@ -108,6 +122,9 @@ test_evaluator = dict(
 
 
 # optimizer
+# Configure the optimizer (e.g., SGD, Adam) and learning rate scheduler (e.g., step-based, cosine annealing) based on your training objectives and model architecture. 
+# Tuning these components can significantly impact convergence speed and final model performance.
+
 optim_wrapper = dict(
     _delete_=True,
     type='OptimWrapper',
