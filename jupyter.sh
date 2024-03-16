@@ -11,8 +11,6 @@ OUT_DIR="$PWD/out"
 CONFIG_DIR=$PWD/codes/
 NOTEBOOK_DIR=$PWD/notebooks/
 
-GPUS=3
-
 docker run -it --rm \
     --gpus all \
     --mount type=bind,source=$CONFIG_DIR,target=/configs \

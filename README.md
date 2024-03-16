@@ -52,6 +52,19 @@ bash jupyter.sh
 1. Update the `DATA_DIR` path inside the `train.sh` script to your appropriate local path where the dataset is located.
 2. Update the `GPU` variable to the number of installed GPUs on your PC.
 
+## Tips
+Ensure that the `train.sh` and  `jupyter.sh` bash scripts has executable permissions. If not, grant execute permission by running `chmod u+x train.sh`.
+
+# Model Conversion to OpenVINO and Hugging Face Integration
+## Converting to OpenVINO
+Our trained PyTorch model was converted to OpenVINO format using the Model Optimizer tool. This streamlined the deployment process for various hardware platforms.
+
+## Hugging Face Upload
+We shared the OpenVINO model on the Hugging Face Model Hub, making it easily accessible for developers ([here](https://huggingface.co/spaces/homai/Kvasir-Instrument-RTMDet)). This allows for straightforward integration into applications and fine-tuning on custom datasets.
+
+## Running on Hugging Face
+Instantiating the model from its unique identifier on Hugging Face enables easy execution and result visualization. Whether through the website interface or the API, running the model is intuitive and efficient.
+
 ## Disclaimer
 
 This project is intended for educational purposes only. It is not intended to provide medical advice or any other professional advice. Any use of this project for real-world applications should be done with caution and proper consultation with relevant experts.
