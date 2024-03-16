@@ -60,7 +60,7 @@ Ensure that the `train.sh` and  `jupyter.sh` bash scripts has executable permiss
 Our trained PyTorch model was converted to OpenVINO format using the Model Optimizer tool. This streamlined the deployment process for various hardware platforms.
 
 ## Hugging Face Upload
-We shared the original trained PyTorch model and its converted version to OpenVINO format on the Hugging Face Model Hub, making it easily accessible for developers ([here](https://huggingface.co/spaces/homai/Kvasir-Instrument-RTMDet)). This allows for straightforward integration into applications and fine-tuning on custom datasets.
+We shared the trained models (original PyTorch model and its converted version to OpenVINO format) on the Hugging Face Model Hub, making it easily accessible for developers ([here](https://huggingface.co/spaces/homai/Kvasir-Instrument-RTMDet)). This allows for straightforward integration into applications and fine-tuning on custom datasets.
 
 ## Running on Hugging Face
 Instantiating the model from its unique identifier on Hugging Face enables easy execution and result visualization. Whether through the website interface or the API, running the model is intuitive and efficient.
